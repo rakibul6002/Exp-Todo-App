@@ -27,9 +27,9 @@ const Todo = () => {
                     id:Math.random(),
                     text:todoInput,
                 }));
-                
-                
                 toast.success("Todo added successful")
+                
+                
               
             };
 
