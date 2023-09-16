@@ -7,8 +7,8 @@ const AllTodopage = () => {
   return (
     <div>
       <div className='max-w-xl mx-auto border border-gray-400 mt-5 py-6 px-4'>
-        <p className='text-lg font-semibold flex items-center justify-center'>All todos</p> 
-        <div>
+        <p className='text-4xl font-semibold flex items-center justify-center'>ToDo List</p> 
+        <div className='mt-8'>
           <AllTodos/>
         </div>
       </div>
