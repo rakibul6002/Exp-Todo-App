@@ -1,6 +1,5 @@
 'use client'
 import React, { useState } from 'react';
-import { MdDelete } from 'react-icons/Md';
 import toast, { Toaster } from 'react-hot-toast';
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,7 +9,7 @@ const Todo = () => {
     const {todosValue} = useSelector ((state)=>state.todo);
 
     // const[todoArray,setTodoArray] = useState([]);
-    const[todoInput,setTodoInput] = useState();
+    const[todoInput,setTodoInput] = useState("");
     // const[count,setCount] = useState(0);
 
         const dispatch= useDispatch()
@@ -18,13 +17,21 @@ const Todo = () => {
 
             // setCount(count + 1);
             e.preventDefault();
-            
-            setTodoInput("");
-            dispatch(jogTodo({
-                id:Math.random(),
-                text:todoInput,
-            }));
-           
+            if(todoInput === "" ){
+                toast.error("Please enter your todo...");
+                
+            }else{
+                
+                setTodoInput("");
+                dispatch(jogTodo({
+                    id:Math.random(),
+                    text:todoInput,
+                }));
+                
+                
+                toast.success("Todo added successful")
+              
+            };
 
            
             
@@ -69,7 +76,7 @@ const Todo = () => {
                                 </p>
                             ))
                         
-                    ) : ( <p className='flex items-center justify-center text-2xl'>No todo Available</p> 
+                    ) : ( <p className='flex items-center justify-center mx-auto text-2xl font-semibold '>No todos available...</p> 
                     )}
                     
             </div>
