@@ -1,8 +1,9 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
-
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteTodo } from '@/reduxStore/amiparinaSlice ';
 const AllTodos = () => {
-    const {todosValue} = useSelector((state) => state.todo)
+    const {todosValue} = useSelector((state) => state.todo);
+    const dispatch= useDispatch();
   return (
     <div>
         {
@@ -20,7 +21,7 @@ const AllTodos = () => {
                                 </p>
                             ))
                         
-                    ) : ( <p className='flex items-center justify-center mx-auto text-2xl font-semibold '>No todos available...</p> 
+                    ) : ( <p className='flex items-center justify-center mx-auto text-xl font-semibold '>No todos available...</p> 
                     )}
 
         {/* {
